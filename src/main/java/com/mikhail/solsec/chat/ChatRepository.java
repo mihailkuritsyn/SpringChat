@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface ChatRepository {
 
-	List<String> getMessages(int messageIndex);
+    List<String> getMessages(int messageIndex);
 
-	void addMessage(String message);
+    void addMessage(String message);
 
 }

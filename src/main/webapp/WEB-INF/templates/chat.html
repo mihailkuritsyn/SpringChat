@@ -8,13 +8,14 @@
 <h1>Welcome to chat</h1>
 
 <form id="joinChatForm" th:action="@{/mvc/chat}" data-bind="visible: activePollingXhr() == null">
-    <p>
+    <div>
         <label for="user">Your name: </label>
         <input id="user" name="user" type="text" data-bind="value: userName"/>
 
-        <label for="userColor">Color: </label>
-        <!--<input id="userColor" name="userColor" type="ctext" data-bind="value: userColor"/>-->
 
+    </div>
+    <div>
+        <label for="userColor">Color: </label>
         <select id="userColor" name="userColor" data-bind="value: userColor">
             <option value="black">black</option>
             <option value="red">red</option>
@@ -23,7 +24,7 @@
         </select>
 
         <input name="messageIndex" type="hidden" data-bind="value: messageIndex"/>
-    </p>
+    </div>
     <button id="start" type="submit" data-bind="click: joinChat">Join</button>
 
 </form>
@@ -36,7 +37,7 @@
 </form>
 
 <div data-bind="visible: activePollingXhr() != null">
-    <textarea rows="15" cols="60" readonly="readonly" data-bind="text: chatContent"></textarea>
+    <div data-bind="html: chatContent"></div>
 </div>
 
 <form id="postMessageForm" th:action="@{/mvc/chat}" data-bind="visible: activePollingXhr() != null">

@@ -49,7 +49,7 @@ $(document).ready(function () {
                 var form = $("#postMessageForm");
                 $.ajax({
                     url: form.attr("action"), type: "POST",
-                    data: "message=[" + that.userName() + "] " + $("#postMessageForm input[name=message]").val() + "&userColor=" + that.userColor(),
+                    data: createMessage(),
                     error: function (xhr) {
                         console.error("Error posting chat message: status=" + xhr.status + ", statusText=" + xhr.statusText);
                     }
@@ -70,6 +70,13 @@ $(document).ready(function () {
             that.message('');
             that.messageIndex(0);
             that.chatContent('');
+        }
+
+        function createMessage() {
+            var date = new Date();
+            return 'message=<font color=\"' + that.userColor() + '\">' +
+                date.getHours() + ':' + date.getHours() + ' ' + that.userName() + ': ' +
+                $('#postMessageForm input[name=message]').val() + '</font><br>';
         }
 
     }

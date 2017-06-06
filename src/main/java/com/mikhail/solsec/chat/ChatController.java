@@ -44,25 +44,9 @@ public class ChatController {
         return deferredResult;
     }
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    @ResponseBody
-//    public void postMessage(@RequestParam String message) {
-//
-//        System.out.println("!!!!!!!!!!!!message " + message);
-//
-//        chatRepository.addMessage(message);
-//        for (Entry<DeferredResult<List<String>>, Integer> entry : chatRequests.entrySet()) {
-//            List<String> messages = chatRepository.getMessages(entry.getValue());
-//            entry.getKey().setResult(messages);
-//        }
-//    }
-
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public void postMessage(@RequestParam String message, @RequestParam String userColor) {
-
-        System.out.println("!!!!!!!!!!!!color " + userColor);
-
+    public void postMessage(@RequestParam String message) {
         chatRepository.addMessage(message);
         for (Entry<DeferredResult<List<String>>, Integer> entry : chatRequests.entrySet()) {
             List<String> messages = chatRepository.getMessages(entry.getValue());
