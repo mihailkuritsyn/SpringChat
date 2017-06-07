@@ -37,7 +37,14 @@
 </form>
 
 <div data-bind="visible: activePollingXhr() != null">
+    <p>
+        Online:
+    <div data-bind="html: chatMembers"></div>
+    </p>
+    <p>
+        Chat:
     <div data-bind="html: chatContent"></div>
+    </p>
 </div>
 
 <form id="postMessageForm" th:action="@{/mvc/chat}" data-bind="visible: activePollingXhr() != null">

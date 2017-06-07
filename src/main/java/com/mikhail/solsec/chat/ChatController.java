@@ -54,4 +54,22 @@ public class ChatController {
         }
     }
 
+    @RequestMapping(value = "/addMember", method = RequestMethod.POST)
+    @ResponseBody
+    public void addMember(@RequestParam String login) {
+        System.out.println("!!!!!!" + login);
+
+        chatRepository.addMember(login);
+    }
+
+    @RequestMapping(value = "/getMembers", method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> getMembers() {
+        System.out.println("!!!getMembers");
+
+        List<String> members = chatRepository.getMembers();
+        System.out.println("!!1members" + members);
+        return members;
+    }
+
 }
